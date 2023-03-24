@@ -1,5 +1,8 @@
-import React from 'react'
 import styled from 'styled-components'
+import LeftSide from './LeftSide'
+import Main from './Main'
+import RightSide from './RightSide'
+
 const Home = (props) => {
   return (
     <Container>
@@ -11,6 +14,11 @@ const Home = (props) => {
           Find talented pros in record tine with Upwork and keep business moving.
         </p>
       </Section>
+      <Layout>
+        <LeftSide />
+        <Main />
+        <RightSide/>
+      </Layout>
     </Container>
   )
 }
@@ -32,18 +40,33 @@ const Section = styled.section`
   display: flex;
   justify-content: center;
   h5{
-    color: #2643c6;
+    color: #2643c6 ;
     font-size: 14px;
+    a{
+      font-weight: 700;
+    } 
   }
-  a{
-    font-weight: 700;
-  } 
   p{
     font-size: 14px;
     font-weight: 600;
     color: #434649;
   }
   @media (max-width: 768px) {
+    flex-direction: column;
+    padding: 0 5px;
+  }
+`;
+
+const Layout = styled.div`
+  display: grid;
+  grid-template-areas: "left main right";
+  grid-template-columns: minmax(0,5fr) minmax(0,12fr) minmax(300px,7fr);
+  column-gap: 25px;
+  row-gap: 25px;
+  /* grid-template-rows: auto;  */
+  margin: 25px ;
+  @media (max-width: 768px){
+    display: flex;
     flex-direction: column;
     padding: 0 5px;
   }
